@@ -1,1 +1,42 @@
-print("hello world");
+#include <stdio.h>
+#include <string.h>
+
+#define NUM_PRODUTOS 10
+
+
+struct Produto {
+    int codigo;
+    char descricao[50];
+    float precoCusto;
+};
+
+int main() {
+    struct Produto produtos[NUM_PRODUTOS];
+
+    
+    
+    for (int i = 0; i < NUM_PRODUTOS; i++) {
+        printf("\nProduto %d:\n", i + 1);
+        
+        printf("Código: ");
+        scanf("%d", &produtos[i].codigo);
+        
+        printf("Descrição: ");
+        scanf(" %[^\n]", produtos[i].descricao); 
+        
+        printf("Preço de custo: ");
+        scanf("%f", &produtos[i].precoCusto);
+    }
+
+    
+    printf("\nDados dos Produtos Cadastrados:\n");
+    for (int i = 0; i < NUM_PRODUTOS; i++) {
+        printf("\nProduto %d:\n", i + 1);
+        printf("Código: %d\n", produtos[i].codigo);
+        printf("Descrição: %s\n", produtos[i].descricao);
+        printf("Preço de custo: R$ %.2f\n", produtos[i].precoCusto);
+    }
+
+    return 0;
+}
+
